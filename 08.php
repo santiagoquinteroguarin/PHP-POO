@@ -1,18 +1,16 @@
 <?php include 'includes/header.php';
 
+// ? AUTOLOAD DE CLASES
+
+// ? Importar AUTOLOAD
 require 'vendor/autoload.php';
 
-// require 'clases/Clientes.php';
-// require 'clases/Detalles.php';
-
+// ? Importar Clases
 use App\Clientes;
 use App\Detalles;
 use \Firebase\JWT\JWT;
 
-
-
-
-
+// ? Instanciando
 $detalles = new Detalles();
 $clientes = new Clientes();
 

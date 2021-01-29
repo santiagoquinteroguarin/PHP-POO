@@ -1,25 +1,25 @@
 <?php include 'includes/header.php';
 
-// Conectar a la BD con PDO
-$db = new PDO('mysql:host=localhost; dbname=bienesraices_crud', 'root', '');
+// ? 1. Conectar a la BD con PDO
+$db = new PDO('mysql:host=localhost; dbname=real_estate', 'root', '');
 
-// Creamos el query
-$query = "SELECT titulo, imagen from propiedades";
+// ? 2. Creamos el query
+$query = "SELECT title, image from properties";
 
-// Lo preparamos
+// ? 3. Lo preparamos
 $stmt = $db->prepare($query);
 
-// Lo ejecutamos
+// ? 4. Lo ejecutamos
 $stmt->execute();
 
-// Obtener los resultados
+// ? 5. Obtener los resultados
 $resultado = $stmt->fetchAll( PDO::FETCH_ASSOC );
 
 // Iterar
 foreach($resultado as $propiedad):
-    echo $propiedad['titulo'];
+    echo $propiedad['title'];
     echo "<br>";
-    echo $propiedad['imagen'];
+    echo $propiedad['image'];
     echo "<br>";
 endforeach;
 
