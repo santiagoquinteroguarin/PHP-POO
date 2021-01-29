@@ -1,10 +1,14 @@
 <?php include 'includes/header.php';
 
+// ? POLIMORFISMO - los objetos pueden tener diferentes formas cuando diferentes clases implementan la misma interfaz
+
+// * Interfaz
 interface TransporteInterfaz {
     public function getInfo() : string;
     public function getRuedas() : int;
 }
 
+// * Clase principal
 class Transporte implements TransporteInterfaz {
     public function __construct(protected int $ruedas, protected int $capacidad)
     {
@@ -20,6 +24,7 @@ class Transporte implements TransporteInterfaz {
     }
 }
 
+// * Clase Automvil que hereda de transporte
 class Automovil extends Transporte implements TransporteInterfaz {
     public function __construct(protected int $ruedas, protected int $capacidad, protected string $color)
     {
@@ -37,12 +42,15 @@ class Automovil extends Transporte implements TransporteInterfaz {
 
 echo "<pre>";
 
+// ? Instanciar clases
 var_dump($transporte = new Transporte(8, 20));
 var_dump($auto = new Automovil(4, 4, 'Rojo'));
 
+// ? Ver info transporte
 echo $transporte->getInfo();
 echo "<br>";
 
+// ? ver info automovil
 echo $auto->getInfo();
 echo "<br>";
 
