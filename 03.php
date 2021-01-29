@@ -3,22 +3,22 @@ declare( strict_types = 1);
 
 include 'includes/header.php';
 
-// Métodos Estaticos
+// ? Métodos Estaticos
 
 class Producto {
-
-
     public $imagen;
     public static $imagenPlaceholder = "Imagen.jpg";
 
     public function __construct(protected string $nombre, public int $precio, public bool $disponible, string $imagen)
     {
         if($imagen) {
+            // * reescribir la imagen
             self::$imagenPlaceholder = $imagen;
         }
     }
 
     public static function obtenerImagenProducto() {
+        // ? accediendo a la variable
         return self::$imagenPlaceholder;
     }
 
@@ -37,13 +37,11 @@ class Producto {
     public function setNombre(string $nombre) {
         $this->nombre = $nombre;
     }
-
 }
 
-
 $producto = new Producto('Tablet', 200, true, '');
-// $producto->mostrarProducto();
 
+// ? acceder a metodos estaticos
 echo $producto->obtenerImagenProducto();
 
 echo $producto->getNombre();
@@ -54,7 +52,6 @@ var_dump($producto);
 echo "</pre>";
 
 $producto2 = new Producto('Monitor Curvo', 300, true, 'monitorCurvo.jpg');
-// $producto2->mostrarProducto();
 
 echo $producto2->getNombre();
 
