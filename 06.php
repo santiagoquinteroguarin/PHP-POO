@@ -1,5 +1,7 @@
 <?php include 'includes/header.php';
 
+// ? Interfaces -> agrupar un grupo de declaraciones de funciones este sirve como un plano de como esta compuesta la clase
+
 interface TransporteInterfaz {
     public function getInfo() : string;
     public function getRuedas() : int;
@@ -19,7 +21,5 @@ class Transporte implements TransporteInterfaz {
         return $this->ruedas;
     }
 }
-
-
 
 include 'includes/footer.php';
