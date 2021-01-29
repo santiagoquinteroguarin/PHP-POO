@@ -1,5 +1,8 @@
 <?php include 'includes/header.php';
 
+// ? HERENCIA
+
+// * Clase Principal
 class Transporte {
     public function __construct(protected int $ruedas, protected int $capacidad)
     {
@@ -15,14 +18,14 @@ class Transporte {
     }
 }
 
-
+// * SubClase Bicicleta
 class Bicicleta extends Transporte {
-
     public function getInfo() : string {
         return "El transporte tiene " . $this->ruedas . " ruedas y una capacidad de " . $this->capacidad . " personas y NO GASTA GASOLINA ";
     }
 }
 
+// * SubClase Automovil
 class Automovil extends Transporte {
     public function __construct(protected int $ruedas, protected int $capacidad, protected string $transmision)
     {
