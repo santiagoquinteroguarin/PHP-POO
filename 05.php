@@ -1,7 +1,10 @@
 <?php include 'includes/header.php';
 
+// ? Clases Abstractas
+// * Son clases que no se pueden instanciar y solo se pueden heredar
 
-class Transporte {
+// * Clase Principal
+abstract class Transporte {
     public function __construct(protected int $ruedas, protected int $capacidad)
     {
         
@@ -16,7 +19,7 @@ class Transporte {
     }
 }
 
-
+// * Clase Bicicleta
 class Bicicleta extends Transporte {
 
     public function getInfo() : string {
@@ -24,6 +27,7 @@ class Bicicleta extends Transporte {
     }
 }
 
+// * Clase Automovil
 class Automovil extends Transporte {
     public function __construct(protected int $ruedas, protected int $capacidad, protected string $transmision)
     {
@@ -34,8 +38,6 @@ class Automovil extends Transporte {
         return $this->transmision;
     }
 }
-
-
 
 $bicicleta = new Bicicleta(2, 1);
 echo $bicicleta->getInfo();
